@@ -86,7 +86,7 @@ class _RecipeKeeperAppState extends State<RecipeKeeperApp> {
               left: ClipRRect(
                 borderRadius: BorderRadius.circular(10),
                 child: Image.asset(
-                  'assets/images/placeholder_recipe.jpg',
+                  'assets/images/breakfastFood.jpg',
                   fit: BoxFit.cover,
                   width: double.infinity,
                   height: double.infinity,
@@ -95,7 +95,7 @@ class _RecipeKeeperAppState extends State<RecipeKeeperApp> {
               right: ClipRRect(
                 borderRadius: BorderRadius.circular(10),
                 child: Image.asset(
-                  'assets/images/placeholder_recipe.jpg',
+                  'assets/images/lunchFood.png',
                   fit: BoxFit.cover,
                   width: double.infinity,
                   height: double.infinity,

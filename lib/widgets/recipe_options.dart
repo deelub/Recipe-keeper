@@ -24,47 +24,51 @@ class RecipeOptionsWidget extends StatelessWidget {
           ),
         ),
         DailySuggestionsWidget(
-          left: ClipRRect(          //breakfast
-                borderRadius: BorderRadius.circular(10),
-                child: Image.asset(
-                  'assets/images/breakfastFood.jpg',
-                  fit: BoxFit.cover,
-                  width: double.infinity,
-                  height: double.infinity,
-                ),
-              ),
-          right:ClipRRect(          //lunch
-                borderRadius: BorderRadius.circular(10),
-                child: Image.asset(
-                  'assets/images/placeholder_recipe.jpg',
-                  fit: BoxFit.cover,
-                  width: double.infinity,
-                  height: double.infinity,
-                ),
-              ),
+          left: ClipRRect(
+            //breakfast
+            borderRadius: BorderRadius.circular(10),
+            child: Image.asset(
+              'assets/images/breakfastFood.jpg',
+              fit: BoxFit.cover,
+              width: double.infinity,
+              height: double.infinity,
+            ),
+          ),
+          right: ClipRRect(
+            //lunch
+            borderRadius: BorderRadius.circular(10),
+            child: Image.asset(
+              'assets/images/lunchFood.png',
+              fit: BoxFit.cover,
+              width: double.infinity,
+              height: double.infinity,
+            ),
+          ),
         ),
 
         const SizedBox(height: 16),
 
-        DailySuggestionsWidget(       //dinner
+        DailySuggestionsWidget(
+          //dinner
           left: ClipRRect(
-                borderRadius: BorderRadius.circular(10),
-                child: Image.asset(
-                  'assets/images/placeholder_recipe.jpg',
-                  fit: BoxFit.cover,
-                  width: double.infinity,
-                  height: double.infinity,
-                ),
-              ),
-          right: ClipRRect(           //snacks
-                borderRadius: BorderRadius.circular(10),
-                child: Image.asset(
-                  'assets/images/placeholder_recipe.jpg',
-                  fit: BoxFit.cover,
-                  width: double.infinity,
-                  height: double.infinity,
-                ),
-              ),
+            borderRadius: BorderRadius.circular(10),
+            child: Image.asset(
+              'assets/images/dinnerFood.png',
+              fit: BoxFit.cover,
+              width: double.infinity,
+              height: double.infinity,
+            ),
+          ),
+          right: ClipRRect(
+            //snacks
+            borderRadius: BorderRadius.circular(10),
+            child: Image.asset(
+              'assets/images/snacksFood.jpg',
+              fit: BoxFit.cover,
+              width: double.infinity,
+              height: double.infinity,
+            ),
+          ),
         ),
       ],
     );

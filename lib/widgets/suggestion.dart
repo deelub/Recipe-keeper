@@ -19,15 +19,16 @@ class DailySuggestionsWidget extends StatelessWidget {
           Expanded(
             child: _box(
               child: SizedBox.expand(
-                child: Image.asset(
-                  'assets/images/lunchfood.png',
-                  fit: BoxFit.cover,
+                child: left
                 ),
               ),
             ),
-          ),
           const SizedBox(width: 12),
-          Expanded(child: _box(child: right)),
+          Expanded(child: _box(
+              child: SizedBox.expand(
+                child: right,
+              ),
+            ),),
         ],
       ),
     );
