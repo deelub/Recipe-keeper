@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'widgets/search_bar.dart';
 
 void main() {
@@ -8,45 +9,64 @@ void main() {
 class RecipeKeeperApp extends StatefulWidget {
   const RecipeKeeperApp({super.key});
 
-  
   @override
   State<RecipeKeeperApp> createState() => _RecipeKeeperAppState();
-
 }
 
-class _RecipeKeeperAppState extends State<RecipeKeeperApp>{
+class _RecipeKeeperAppState extends State<RecipeKeeperApp> {
+  String query = '';
 
- String query = '';
-
-
-   @override
+  @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
         backgroundColor: const Color(0xFFF7F7F9),
+
         appBar: AppBar(
           title: const Text('Recipe Keeper'),
           backgroundColor: const Color.fromARGB(255, 25, 125, 7),
           foregroundColor: Colors.white,
           elevation: 0,
-        ),
-        body: Column(
-          children: [
-            RecipeSearchBar(
-              width: 800,   //width to change later on to non-fixed dependent on screen size
-              onChanged: (value) => setState(() => query = value),
-              onFilterTap: () {
-              },
-            ),
 
-            Expanded(
-              child: Center(child: Text('Searching for: $query')),
+          bottom: PreferredSize(
+            preferredSize: const Size.fromHeight(70),
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(16, 0, 16, 12),
+              child: Row(
+                children: [
+    
+                  Expanded(     //recipe serach bar
+                    child: RecipeSearchBar(
+                      onChanged: (value) {
+                        setState(() {
+                          query = value;
+                        });
+                      },
+                      onFilterTap: () {},
+                    ),
+                  ),
+
+                  const SizedBox(width: 8),
+
+                  IconButton(           //icon for adding to recipe db
+                    icon: const Icon(
+                      Icons.add_circle,
+                      color: Colors.white,
+                      size: 34,
+                    ),
+                    onPressed: () {},
+                  ),
+                ],
+              ),
             ),
-          ],
+          ),
+        ),
+
+        body: Column(
+          
+          children: [Expanded(child: Center(child: Text('Search: $query')))],
         ),
       ),
     );
   }
 }
-
-
