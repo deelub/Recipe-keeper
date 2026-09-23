@@ -24,15 +24,47 @@ class RecipeOptionsWidget extends StatelessWidget {
           ),
         ),
         DailySuggestionsWidget(
-          left: const Center(child: Text('Breakfast')),
-          right: const Center(child: Text('Lunch')),
+          left: ClipRRect(          //breakfast
+                borderRadius: BorderRadius.circular(10),
+                child: Image.asset(
+                  'assets/images/breakfastFood.jpg',
+                  fit: BoxFit.cover,
+                  width: double.infinity,
+                  height: double.infinity,
+                ),
+              ),
+          right:ClipRRect(          //lunch
+                borderRadius: BorderRadius.circular(10),
+                child: Image.asset(
+                  'assets/images/placeholder_recipe.jpg',
+                  fit: BoxFit.cover,
+                  width: double.infinity,
+                  height: double.infinity,
+                ),
+              ),
         ),
 
         const SizedBox(height: 16),
 
-        DailySuggestionsWidget(
-          left: const Center(child: Text('Dinner')),
-          right: const Center(child: Text('Snacks')),
+        DailySuggestionsWidget(       //dinner
+          left: ClipRRect(
+                borderRadius: BorderRadius.circular(10),
+                child: Image.asset(
+                  'assets/images/placeholder_recipe.jpg',
+                  fit: BoxFit.cover,
+                  width: double.infinity,
+                  height: double.infinity,
+                ),
+              ),
+          right: ClipRRect(           //snacks
+                borderRadius: BorderRadius.circular(10),
+                child: Image.asset(
+                  'assets/images/placeholder_recipe.jpg',
+                  fit: BoxFit.cover,
+                  width: double.infinity,
+                  height: double.infinity,
+                ),
+              ),
         ),
       ],
     );

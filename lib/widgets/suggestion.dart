@@ -16,8 +16,17 @@ class DailySuggestionsWidget extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: Row(
         children: [
-          Expanded(child: _box(child: left)),
-          const SizedBox(width: 12),          
+          Expanded(
+            child: _box(
+              child: SizedBox.expand(
+                child: Image.asset(
+                  'assets/images/lunchfood.png',
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+          ),
+          const SizedBox(width: 12),
           Expanded(child: _box(child: right)),
         ],
       ),
@@ -26,7 +35,8 @@ class DailySuggestionsWidget extends StatelessWidget {
 
   Widget _box({required Widget child}) {
     return Container(
-      height: 120,                            
+      height: 120,
+      clipBehavior: Clip.antiAlias,
       decoration: BoxDecoration(
         color: Colors.grey,
         borderRadius: BorderRadius.circular(10),
@@ -38,7 +48,7 @@ class DailySuggestionsWidget extends StatelessWidget {
           ),
         ],
       ),
-      alignment: Alignment.center,            
+      alignment: Alignment.center,
       child: child,
     );
   }
