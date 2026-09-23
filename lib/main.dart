@@ -64,16 +64,28 @@ class _RecipeKeeperAppState extends State<RecipeKeeperApp> {
           ),
         ),
 
-        body: Column(
-          children: [
-            Expanded(
-              child: DailySuggestionsWidget(
-                left: Container(child: const Center(child: Text('Left'))),
-                right: Container(child: const Center(child: Text('Right'))),
-              ),
-            ),
-          ],
+       body: Column(
+  crossAxisAlignment: CrossAxisAlignment.start,
+  children: [
+    const Padding(
+      padding: EdgeInsets.fromLTRB(16, 16, 16, 12),
+      child: Text(
+        "Today's Suggestion",
+        style: TextStyle(
+          fontSize: 18,
+          fontWeight: FontWeight.w600,
+          color: Colors.black87,
         ),
+      ),
+    ),
+
+    
+    DailySuggestionsWidget(
+      left: Container(child: const Center(child: Text('Lunch'))),
+      right: Container(child: const Center(child: Text('Dinner'))),
+    ),
+  ],
+),
       ),
     );
   }
