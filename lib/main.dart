@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'widgets/search_bar.dart';
 import 'widgets/suggestion.dart';
+import 'widgets/recipe_options.dart';
 
 void main() {
   runApp(const RecipeKeeperApp());
@@ -64,28 +65,30 @@ class _RecipeKeeperAppState extends State<RecipeKeeperApp> {
           ),
         ),
 
-       body: Column(
-  crossAxisAlignment: CrossAxisAlignment.start,
-  children: [
-    const Padding(
-      padding: EdgeInsets.fromLTRB(16, 16, 16, 12),
-      child: Text(
-        "Today's Suggestion",
-        style: TextStyle(
-          fontSize: 18,
-          fontWeight: FontWeight.w600,
-          color: Colors.black87,
-        ),
-      ),
-    ),
+        body: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Padding(
+              padding: EdgeInsets.fromLTRB(16, 16, 16, 12),
+              child : Center(child: Text(
+                "Today's Suggestion",
+                style: TextStyle(
+                  fontSize: 26,
+                  fontWeight: FontWeight.w600,
+                  color: Colors.black87,
+                ),
+              ),)
+              
+            ),
 
-    
-    DailySuggestionsWidget(
-      left: Container(child: const Center(child: Text('Lunch'))),
-      right: Container(child: const Center(child: Text('Dinner'))),
-    ),
-  ],
-),
+            DailySuggestionsWidget(
+              left: Container(child: const Center(child: Text('Lunch'))),
+              right: Container(child: const Center(child: Text('Dinner'))),
+            ),
+
+            const RecipeOptionsWidget(),
+          ],
+        ),
       ),
     );
   }
