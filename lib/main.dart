@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'widgets/search_bar.dart';
+import 'widgets/suggestion.dart';
 
 void main() {
   runApp(const RecipeKeeperApp());
@@ -34,8 +35,8 @@ class _RecipeKeeperAppState extends State<RecipeKeeperApp> {
               padding: const EdgeInsets.fromLTRB(16, 0, 16, 12),
               child: Row(
                 children: [
-    
-                  Expanded(     //recipe serach bar
+                  Expanded(
+                    //recipe serach bar
                     child: RecipeSearchBar(
                       onChanged: (value) {
                         setState(() {
@@ -48,7 +49,8 @@ class _RecipeKeeperAppState extends State<RecipeKeeperApp> {
 
                   const SizedBox(width: 8),
 
-                  IconButton(           //icon for adding to recipe db
+                  IconButton(
+                    //icon for adding to recipe db
                     icon: const Icon(
                       Icons.add_circle,
                       color: Colors.white,
@@ -63,8 +65,14 @@ class _RecipeKeeperAppState extends State<RecipeKeeperApp> {
         ),
 
         body: Column(
-          
-          children: [Expanded(child: Center(child: Text('Search: $query')))],
+          children: [
+            Expanded(
+              child: DailySuggestionsWidget(
+                left: Container(child: const Center(child: Text('Left'))),
+                right: Container(child: const Center(child: Text('Right'))),
+              ),
+            ),
+          ],
         ),
       ),
     );

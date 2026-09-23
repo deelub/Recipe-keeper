@@ -1,34 +1,44 @@
 import 'package:flutter/material.dart';
 
+class DailySuggestionsWidget extends StatelessWidget {
+  final Widget left;
+  final Widget right;
 
-class DailySuggestionsWidget extends StatelessWidget{
-  const DailySuggestionsWidget({super.key});
-
+  const DailySuggestionsWidget({
+    super.key,
+    required this.left,
+    required this.right,
+  });
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Container(
-      
-    );
-      }
+      child:
+       Row(
+        children: [
 
-  Widget _box({required Widget child}){
+          Expanded(child: _box(child: left)),
+          Expanded(child: _box(child: right)),
+        ],
+      ),
+    );
+  }
+
+  Widget _box({required Widget child}) {
     return Container(
-      height : 120,
+      width: 40,
+      height: 120,
       decoration: BoxDecoration(
-        color : Colors.grey,
+        color: Colors.grey,
         borderRadius: BorderRadius.circular(10),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(0.05),
             blurRadius: 10,
-            offset:  const Offset(0, 4),
-
+            offset: const Offset(0, 4),
           ),
         ],
       ),
-      alignment: Alignment.center,
       child: child,
     );
   }
