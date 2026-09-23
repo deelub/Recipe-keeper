@@ -70,20 +70,37 @@ class _RecipeKeeperAppState extends State<RecipeKeeperApp> {
           children: [
             const Padding(
               padding: EdgeInsets.fromLTRB(16, 16, 16, 12),
-              child : Center(child: Text(
-                "Today's Suggestion",
-                style: TextStyle(
-                  fontSize: 26,
-                  fontWeight: FontWeight.w600,
-                  color: Colors.black87,
+              child: Center(
+                child: Text(
+                  "Today's Suggestion",
+                  style: TextStyle(
+                    fontSize: 26,
+                    fontWeight: FontWeight.w600,
+                    color: Colors.black87,
+                  ),
                 ),
-              ),)
-              
+              ),
             ),
 
             DailySuggestionsWidget(
-              left: Container(child: const Center(child: Text('Lunch'))),
-              right: Container(child: const Center(child: Text('Dinner'))),
+              left: ClipRRect(
+                borderRadius: BorderRadius.circular(10),
+                child: Image.asset(
+                  'assets/images/placeholder_recipe.jpg',
+                  fit: BoxFit.cover,
+                  width: double.infinity,
+                  height: double.infinity,
+                ),
+              ),
+              right: ClipRRect(
+                borderRadius: BorderRadius.circular(10),
+                child: Image.asset(
+                  'assets/images/placeholder_recipe.jpg',
+                  fit: BoxFit.cover,
+                  width: double.infinity,
+                  height: double.infinity,
+                ),
+              ),
             ),
 
             const RecipeOptionsWidget(),
