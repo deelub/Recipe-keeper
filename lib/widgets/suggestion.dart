@@ -12,12 +12,12 @@ class DailySuggestionsWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child:
-       Row(
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      child: Row(
         children: [
-
           Expanded(child: _box(child: left)),
+          const SizedBox(width: 12),          
           Expanded(child: _box(child: right)),
         ],
       ),
@@ -26,8 +26,7 @@ class DailySuggestionsWidget extends StatelessWidget {
 
   Widget _box({required Widget child}) {
     return Container(
-      width: 40,
-      height: 120,
+      height: 120,                            
       decoration: BoxDecoration(
         color: Colors.grey,
         borderRadius: BorderRadius.circular(10),
@@ -39,6 +38,7 @@ class DailySuggestionsWidget extends StatelessWidget {
           ),
         ],
       ),
+      alignment: Alignment.center,            
       child: child,
     );
   }
