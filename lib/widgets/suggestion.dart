@@ -17,18 +17,12 @@ class DailySuggestionsWidget extends StatelessWidget {
       child: Row(
         children: [
           Expanded(
-            child: _box(
-              child: SizedBox.expand(
-                child: left
-                ),
-              ),
-            ),
+            child: _box(child: SizedBox.expand(child: left)),
+          ),
           const SizedBox(width: 12),
-          Expanded(child: _box(
-              child: SizedBox.expand(
-                child: right,
-              ),
-            ),),
+          Expanded(
+            child: _box(child: SizedBox.expand(child: right)),
+          ),
         ],
       ),
     );
@@ -36,7 +30,7 @@ class DailySuggestionsWidget extends StatelessWidget {
 
   Widget _box({required Widget child}) {
     return Container(
-      height: 120,
+      height: 170,
       clipBehavior: Clip.antiAlias,
       decoration: BoxDecoration(
         color: Colors.grey,
