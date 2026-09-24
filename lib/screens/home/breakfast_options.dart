@@ -11,10 +11,6 @@ class BreakfastOptions extends StatefulWidget {
 }
 
 class _BreakfastOptions extends State<BreakfastOptions> {
-  List<DataModel> _appRecipes = [];
-  List<DataModel> _userRecipes = [];
-  bool _isLoading = true;
-
   @override
   Widget build(BuildContext context) {
     return CategoryRecipeList(
