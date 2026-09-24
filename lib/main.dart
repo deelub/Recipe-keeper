@@ -1,10 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:recipe_keeper/screens/home/breakfast_options.dart';
+import 'package:recipe_keeper/screens/home/dinner_options.dart';
+import 'package:recipe_keeper/data/db_helper.dart';
+import 'package:sqflite_common_ffi/sqflite_ffi.dart';
+
+import 'dart:io';
 
 import 'widgets/search_bar.dart';
 import 'widgets/suggestion.dart';
 import 'widgets/recipe_options.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  
   runApp(const RecipeKeeperApp());
 }
 
@@ -83,47 +96,70 @@ class _RecipeKeeperAppState extends State<RecipeKeeperApp> {
             ),
 
             DailySuggestionsWidget(
-              left: Stack(
-                fit: StackFit.expand,
-                children: [
-                  Image.asset(
-                    'assets/images/breakfastFood.jpg',
-                    fit: BoxFit.cover,
-                  ),
-                  const Center(
-                    child: Text(
-                      'Breakfast',
-                      style: TextStyle(
-                        color: Color.fromARGB(255, 9, 9, 9),
-                        fontSize: 18,
-                        fontWeight: FontWeight.w600,
+              left: Builder(
+                builder: (context) => GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => const BreakfastOptions(),
                       ),
-                    ),
+                    );
+                  },
+
+                  child: Stack(
+                    fit: StackFit.expand,
+                    children: [
+                      Image.asset(
+                        'assets/images/breakfastFood.jpg',
+                        fit: BoxFit.cover,
+                      ),
+                      const Center(
+                        child: Text(
+                          'Breakfast',
+                          style: TextStyle(
+                            color: Color.fromARGB(255, 9, 9, 9),
+                            fontSize: 18,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
-                ],
+                ),
               ),
 
-              right: Stack(
-                fit: StackFit.expand,
-                children: [
-                  Image.asset(
-                    'assets/images/dinnerFood.png',
-                    fit: BoxFit.cover,
-                  ),
-                  const Center(
-                    child: Text(
-                      'Dinner',
-                      style: TextStyle(
-                        color: Color.fromARGB(255, 9, 9, 9),
-                        fontSize: 18,
-                        fontWeight: FontWeight.w600,
+              right: Builder(
+                builder: (context) => GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (_) => const DinnerOptions()),
+                    );
+                  },
+                  child: Stack(
+                    fit: StackFit.expand,
+                    children: [
+                      Image.asset(
+                        'assets/images/dinnerFood.png',
+                        fit: BoxFit.cover,
                       ),
-                    ),
+                      const Center(
+                        child: Text(
+                          'Dinner',
+                          style: TextStyle(
+                            color: Color.fromARGB(255, 9, 9, 9),
+                            fontSize: 18,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
-                ],
+                ),
               ),
             ),
-            
+
             const RecipeOptionsWidget(),
           ],
         ),
