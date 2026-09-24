@@ -15,10 +15,16 @@ class DataModel {
     required this.ingredients,
     required this.instructions,
 
-
-
-
-
-
   });
+
+    factory DataModel.fromMap(Map<String, dynamic> map) { //Data model objectv to extract data from db
+    return DataModel(
+      id: map['id'] as int,
+      recipeName: map['recipe name'] as String,
+      prepTime: map['prep time'] as String,
+      servingSize: map['serving size'] as int,
+      ingredients: map['ingredients'] as String,
+      instructions: map['instructions'] as String
+    );
+  }
 }
