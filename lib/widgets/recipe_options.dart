@@ -23,51 +23,78 @@ class RecipeOptionsWidget extends StatelessWidget {
             ),
           ),
         ),
+
         DailySuggestionsWidget(
-          left: ClipRRect(
-            //breakfast
-            borderRadius: BorderRadius.circular(10),
-            child: Image.asset(
-              'assets/images/breakfastFood.jpg',
-              fit: BoxFit.cover,
-              width: double.infinity,
-              height: double.infinity,
-            ),
+          left: Stack(
+            fit: StackFit.expand,
+            children: [
+              Image.asset('assets/images/breakfastFood.jpg', fit: BoxFit.cover),
+              const Center(
+                child: Text(
+                  'Breakfast',
+                  style: TextStyle(
+                    color: Color.fromARGB(255, 9, 9, 9),
+                    fontSize: 18,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ),
+            ],
           ),
-          right: ClipRRect(
-            //lunch
-            borderRadius: BorderRadius.circular(10),
-            child: Image.asset(
-              'assets/images/lunchFood.png',
-              fit: BoxFit.cover,
-              width: double.infinity,
-              height: double.infinity,
-            ),
+
+          right: Stack(
+            fit: StackFit.expand,
+            children: [
+              Image.asset('assets/images/lunchFood.png', fit: BoxFit.cover),
+              const Center(
+                child: Text(
+                  'Lunch',
+                  style: TextStyle(
+                    color: Color.fromARGB(255, 9, 9, 9),
+                    fontSize: 18,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
 
         const SizedBox(height: 16),
 
         DailySuggestionsWidget(
-          //dinner
-          left: ClipRRect(
-            borderRadius: BorderRadius.circular(10),
-            child: Image.asset(
-              'assets/images/dinnerFood.png',
-              fit: BoxFit.cover,
-              width: double.infinity,
-              height: double.infinity,
-            ),
+          left: Stack(
+            fit: StackFit.expand,
+            children: [
+              Image.asset('assets/images/dinnerFood.png', fit: BoxFit.cover),
+              const Center(
+                child: Text(
+                  'Dinner',
+                  style: TextStyle(
+                    color: Color.fromARGB(255, 9, 9, 9),
+                    fontSize: 18,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ),
+            ],
           ),
-          right: ClipRRect(
-            //snacks
-            borderRadius: BorderRadius.circular(10),
-            child: Image.asset(
-              'assets/images/snacksFood.jpg',
-              fit: BoxFit.cover,
-              width: double.infinity,
-              height: double.infinity,
-            ),
+
+          right: Stack(
+            fit: StackFit.expand,
+            children: [
+              Image.asset('assets/images/snacksFood.jpg', fit: BoxFit.cover),
+              const Center(
+                child: Text(
+                  'Snacks',
+                  style: TextStyle(
+                    color: Color.fromARGB(255, 9, 9, 9),
+                    fontSize: 18,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
       ],
