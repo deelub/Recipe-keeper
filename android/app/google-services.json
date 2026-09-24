@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "4007434575",
+    "project_id": "arboreal-lane-509612-q9",
+    "storage_bucket": "arboreal-lane-509612-q9.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:4007434575:android:e540af73f28c6759ce0d3a",
+        "android_client_info": {
+          "package_name": "com.example.recipe_keeper"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCpVLHP54R1T7yXnDZFy7UZwes5Aoli4Gw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
