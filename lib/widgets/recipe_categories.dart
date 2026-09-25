@@ -5,10 +5,8 @@ class CategoryRecipeList extends StatefulWidget {
   const CategoryRecipeList({
     super.key,
     required this.title,
-    required this.appRecipeTile
-    ,
-    required this.userRecipeTile
-,
+    required this.appRecipeTile,
+    required this.userRecipeTile,
     required this.icon,
     required this.fetcher,
     this.pageSize = 30,
@@ -17,18 +15,15 @@ class CategoryRecipeList extends StatefulWidget {
 
   final String title;
 
-  final String appRecipeTile
-  ;
+  final String appRecipeTile;
 
   final String userRecipeTile;
-
 
   final IconData icon;
 
   final Future<List<DataModel>> Function() fetcher;
 
   final int pageSize;
-
 
   final void Function(DataModel recipe)? onTapRecipe;
 
@@ -50,7 +45,7 @@ class _CategoryRecipeListState extends State<CategoryRecipeList> {
   @override
   void didUpdateWidget(covariant CategoryRecipeList oldWidget) {
     super.didUpdateWidget(oldWidget);
-    
+
     if (oldWidget.fetcher != widget.fetcher) {
       _load();
     }
@@ -58,16 +53,22 @@ class _CategoryRecipeListState extends State<CategoryRecipeList> {
 
   Future<void> _load() async {
     setState(() => _isLoading = true);
-
-    final all = await widget.fetcher();
-
-    if (!mounted) return;
-
-    setState(() {
-      _primary = all.take(widget.pageSize).toList();
-      _secondary = all.skip(widget.pageSize).toList();
-      _isLoading = false;
-    });
+    try {
+      print('Fetching recipes...');
+      final all = await widget.fetcher();
+      print('Got ${all.length} recipes');
+      if (!mounted) return;
+      setState(() {
+        _primary = all.take(widget.pageSize).toList();
+        _secondary = all.skip(widget.pageSize).toList();
+        _isLoading = false;
+      });
+    } catch (e, st) {
+      print('ERROR loading recipes: $e');
+      print(st);
+      if (!mounted) return;
+      setState(() => _isLoading = false);
+    }
   }
 
   @override
@@ -84,13 +85,11 @@ class _CategoryRecipeListState extends State<CategoryRecipeList> {
       onRefresh: _load,
       child: ListView(
         children: [
-          _sectionHeader(widget.appRecipeTile
-          ),
+          _sectionHeader(widget.appRecipeTile),
           ..._primary.map(_buildTile),
 
           if (_secondary.isNotEmpty) ...[
-            _sectionHeader(widget.userRecipeTile
-        ),
+            _sectionHeader(widget.userRecipeTile),
             ..._secondary.map(_buildTile),
           ],
         ],
